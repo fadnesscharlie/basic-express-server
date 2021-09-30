@@ -14,21 +14,19 @@ describe('web server logger', () => {
     })
   })
 
-  it('should respond with a 500 if no name in query', () => {
+  it('should respond with a 200 if name is in the parameter', () => {
     return mockRequest
-    .get('/person?name=')
+    .get('/person?name')
     .then(results => {
-      // console.log(results)
       expect(results.text).toBe('{"name":""}')
     })
   })
 
-  it('should return the JSON format with the correct name', () => {
+  it('should return GET for a get request', () => {
     return mockRequest
-    .get('/person?name=Charlie')
+    .get('/person')
     .then(results => {
-      // console.log(results)
-      expect(results.text).toBe('{"name":"Charlie"}')
+      expect(results.req.method).toBe('GET')
     })
   })
 

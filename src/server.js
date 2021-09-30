@@ -2,6 +2,7 @@
 
 // 3rd party dependancies (modules)
 const express = require('express');
+const app = express();
 
 // Our own modules
 const notFoundHandler = require('./error-handlers/404.js');
@@ -9,12 +10,9 @@ const errorHandler = require('./error-handlers/500.js');
 const logger = require('./middleware/logger.js');
 const validator = require('./middleware/validator.js');
 
-const app = express();
-
 // Global Middleware
 app.use(express.json());
 app.use(logger)
-
 
 // ### Our routes ###
 
