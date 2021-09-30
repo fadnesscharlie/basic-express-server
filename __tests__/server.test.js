@@ -10,7 +10,6 @@ describe('web server', () => {
     return mockRequest
     .get('/foo')
     .then( results => {
-      console.log(results)
       expect (results.status).toBe(404);
     })
   })

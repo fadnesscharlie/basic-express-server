@@ -32,7 +32,6 @@ app.get('/person', validator, (req,res) => {
 app.use('*', notFoundHandler)
 app.use(errorHandler)
 
-
 module.exports = {
   server: app,
   start: port => {

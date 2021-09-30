@@ -19,16 +19,16 @@ describe('web server logger', () => {
     return mockRequest
     .get('/person?name=Charlie')
     .then(results => {
-      // console.log(results)
       expect(results.text).toBe('{"name":"Charlie"}')
     })
   })
 
   it('should respond with a 500 if no name in query', () => {
     return mockRequest
-    .get('/person')
+    .get('/person?name')
     .then(results => {
-      expect(results.text).toBe('{"name":""}')
+      console.log(results)
+      expect(results.req.path).toBe('/person?name')
     })
   })
 
