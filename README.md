@@ -71,7 +71,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Thank you for visiting my express server! Here in a small application in my learning process to make an express server.
+Thank you for visiting my express server! Here in a small application in my learning process to make an express server. Here is the link to heroku!
+
+[Heroku Live Server](https://basic-express-server-401n19.herokuapp.com/)  
+[Link to Pull Request](https://github.com/fadnesscharlie/basic-express-server/pulls)
+
 
 ### Built With
 
@@ -99,6 +103,9 @@ To get a local copy up and running follow these simple steps.
 
 This project is for us moving forward learning more about express, servers, and some basic tests. In here you will see that we can run tests to make sure everything is working as we code along.
 
+Create a path `herokuLink/person?name=<yournamehere>` to test out our server pathing and parameters!
+
+
 <!-- LICENSE -->
 ## License
 
@@ -112,9 +119,8 @@ Project Link: [https://github.com/fadnesscharlie/basic-express-server](https://g
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-<!-- * []()
-* []()
-* []() -->
+* Phil Murphy
+  * Writing out the 200 request for multiple test and making it more readable
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

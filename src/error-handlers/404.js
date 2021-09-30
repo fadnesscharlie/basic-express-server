@@ -6,5 +6,4 @@ module.exports = (req, res, next) => {
     route: req.path,
     message: 'Not Found'
   })
-  next();
 }

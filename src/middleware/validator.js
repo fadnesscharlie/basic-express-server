@@ -6,6 +6,8 @@
 // This is a route middleware
 
 module.exports = (req, res, next) => {
-  console.log('Request Query', req.query)
-  next();
+  let name = req.query.name;
+  if (!name) {
+    next(`Name Required`);
+  } else { next(); }
 }
