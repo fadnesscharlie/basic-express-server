@@ -2,7 +2,6 @@
 
 const { server } = require('../src/server.js');
 const supertest = require('supertest');
-// const { it, expect } = require('@jest/globals');
 const mockRequest = supertest(server);
 
 describe('web server logger', () => {
@@ -24,11 +23,14 @@ describe('web server logger', () => {
   })
 
   it('should respond with a 500 if no name in query', () => {
+    const data = {
+      name: 'Joe'
+    }
     return mockRequest
-    .get('/person?name')
+    .get('/person')
     .then(results => {
-      console.log(results)
-      expect(results.req.path).toBe('/person?name')
+      expect(results.body.query.value).toBeFalsy();
+      expect(results.status).toBe(500)
     })
   })
 

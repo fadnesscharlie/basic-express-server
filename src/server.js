@@ -29,8 +29,14 @@ app.get('/person', validator, (req,res) => {
   }
 })
 
+app.get('/', logger, (req, res) => {
+  res.status(200).send('Success')
+})
+
 app.use('*', notFoundHandler)
 app.use(errorHandler)
+app.use(validator)
+app.use(logger)
 
 module.exports = {
   server: app,
