@@ -34,8 +34,8 @@ app.get('/', logger, (req, res) => {
 })
 
 app.use('*', notFoundHandler)
-app.use(errorHandler)
 app.use(validator)
+app.use(errorHandler)
 app.use(logger)
 
 module.exports = {
