@@ -1,31 +1,26 @@
 'use strict';
 
-const { server } = require('../src/server.js');
-const supertest = require('supertest');
-const mockRequest = supertest(server);
+// const { server } = require('../src/server.js');
+// const supertest = require('supertest');
+// const mockRequest = supertest(server);
+const validator = require('../src/middleware/validator');
 
-describe('web server logger', () => {
+// Testing Middleware
 
-  it('should respond with a 200 if name is in the parameter', () => {
-    const data = {
-      name: 'name'
-    }
-    return mockRequest
-    .get('/person').query(data)
-    .then(results => {
-      expect(results.status).toBe(200)
-      expect(results.body).toEqual(data)
-    })
+
+describe('Name validator tests', () => {
+  
+  it('should rejext requests withtout a name', () => {
+    let req = { query: {} };
+    let res = { };
+  
+    // spy on next method
+    let next = jest.fn();
+  
+    validator(req, res, next)
+
+    // Has to match validator error message
+    expect(next).toHaveBeenCalledWith('Name Required')
   })
-
-  it('should return GET for a get request and a 404 for a bad route', () => {
-    return mockRequest
-    .get('/*')
-    .then(results => {
-      expect(results.req.method).toBe('GET')
-      expect(results.status).toBe(404)
-    })
-  })
-
-
 })
+
