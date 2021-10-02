@@ -22,17 +22,7 @@ describe('web server logger', () => {
     })
   })
 
-  it('should respond with a 500 if no name in query', () => {
-    const data = {
-      name: 'Joe'
-    }
-    return mockRequest
-    .get('/person')
-    .then(results => {
-      expect(results.body.query.value).toBeFalsy();
-      expect(results.status).toBe(500)
-    })
-  })
+  
 
 })
 
