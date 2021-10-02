@@ -47,6 +47,22 @@ describe('web server', () => {
     })
   })
 
+  it('should respond with a 404 on a bad route', () => {
+    return mockRequest
+    .get('/*')
+    .then( results => {
+      expect(results.status).toBe(404)
+    })
+  })
+  
+  it('should return the JSON format with the correct name', () => {
+    return mockRequest
+    .get('/person?name=Charlie')
+    .then(results => {
+      expect(results.text).toBe('{"name":"Charlie"}')
+    })
+  })
+
   // Async Await Method
   // it('should respond with a 404 invalid method', async () => {
   //   const response = await mockRequest.get('/foobar');
